@@ -7,9 +7,13 @@ const presentButton = document.getElementById("present");
 const absentButton = document.getElementById("absent");
 const resetButton = document.getElementById("reset");
 const ham = document.getElementById("ham");
+const infoTable = document.getElementById("infoTable");
+const totalAbsent = document.getElementById("totalAbsent");
+
 
 let totalClasses = 0;
 let attendClasses = 0;
+let absentClasses = 0;
 
 presentButton.style.display = 'none';
 absentButton.style.display = 'none';
@@ -32,12 +36,15 @@ nameField.addEventListener("keyup", ()=>{
 submitButton.addEventListener("click", ()=>{
     // let value = nameField.value;
     // console.log(nameField.value);
-    editDetails();
     presentButton.style.display = 'inline';
     absentButton.style.display = 'inline';
     resetButton.style.display = 'inline';
     submitButton.style.display = "none";
     nameField.style.display = "none";
+    infoTable.style.visibility = 'visible';
+    editDetails();
+
+
     
 })
 
@@ -52,6 +59,7 @@ presentButton.addEventListener("click", ()=>{
 absentButton.addEventListener("click", ()=>{
 
     totalClasses++;
+    absentClasses++;
     editDetails();
 })
 
@@ -67,20 +75,23 @@ resetButton.addEventListener("click", ()=>{
     attendClasses.innerHTML = "";
     attendenceRatio.innerHTML = "";
     percentage.innerHTML = "";
+    infoTable.style.visibility = 'hidden';
     totalClasses = 0;
     attendClasses = 0;
+    absentClasses = 0;
 
 })
+
 function editDetails(){
-    details.innerHTML = `Name : ${nameField.value}`;
-    attendenceRatio.innerHTML = `Attendence : ${attendClasses}/${totalClasses}`;
-    // let Percentage = parseFloat((attendClasses*100)/totalClasses).toFixed(2);
+    details.innerHTML = `${nameField.value.capitalize()}`;
+    attendenceRatio.innerHTML = `${attendClasses}/${totalClasses}`;
+    totalAbsent.innerHTML = `${absentClasses}`;
     if(totalClasses === 0){
         var Percentage = 0;
     } else{
         Percentage = parseFloat((attendClasses*100)/totalClasses).toFixed(2);
     }
-    percentage.innerHTML = `Attendence Percentage : ${Percentage} %`;
+    percentage.innerHTML = `${Percentage} %`;
 }
 
 
@@ -89,8 +100,14 @@ document.getElementById("year").innerHTML = date.getFullYear();
 
 
 
-// Hamburger
+// Hamburger Toggle Property
 ham.addEventListener('click', ()=>{
     ham.classList.toggle("change");
 })
 
+
+
+// Make String Capatilize
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}

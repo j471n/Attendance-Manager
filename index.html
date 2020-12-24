@@ -21,11 +21,32 @@
             </div>
             <h1 class="title">Attendence Manager</h1>
 
+
             <input id="name" type="text" placeholder="Enter Name">
             <input id="submitButton" type="button" value="Submit">
-            <h3 id = "details"></h3>
-            <h3 id = "attendence"></h3>
-            <h3 id = "percentage"></h3>
+            
+            <table id="infoTable">
+                <tr class="row">
+                    <td>Name</td>
+                    <td id="details">-</td>
+                </tr>
+                <tr class="row">
+                    <td>Attendence</td>
+                    <td id="attendence">-</td>
+                </tr>
+                <tr class="row">
+                    <td>Total Absent</td>
+                    <td id="totalAbsent"></td>
+                </tr>
+                <tr class="row">
+                    <td>Attendence Percentage</td>
+                    <td id="percentage">-</td>
+                </tr>
+
+            </table>
+
+
+    
             <button id="present">Present</button>
             <button id="absent">Absent</button>
             <button id="reset">Reset</button>
