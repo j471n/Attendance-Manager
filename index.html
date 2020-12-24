@@ -14,11 +14,23 @@
             
         <div class="stats">
 
-            <div class="ham" id="ham">
+            <div class="ham" id="ham" >
                 <div class="bar1" id="bar1"></div>
                 <div class="bar2" id="bar2"></div>
                 <div class="bar3" id="bar3"></div>
             </div>
+
+            <div id="mySidenav" class="sidenav">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                <p id="sideEdit">Edit Attendence</p>
+                <form onsubmit="return false;" id="sideForm" class="side-form">
+                    <input id="sideAttendence" type="text" placeholder="Enter Attend Classes">
+                    <input id="sideTotalAttendence" type="text" placeholder="Enter Total Classes">
+                    <button id="sideSubmit">Submit</button>
+                </form>
+
+            </div>
+
             <h1 class="title">Attendence Manager</h1>
 
 
@@ -42,7 +54,6 @@
                     <td>Attendence Percentage</td>
                     <td id="percentage">-</td>
                 </tr>
-
             </table>
 
 

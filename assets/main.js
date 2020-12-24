@@ -9,7 +9,11 @@ const resetButton = document.getElementById("reset");
 const ham = document.getElementById("ham");
 const infoTable = document.getElementById("infoTable");
 const totalAbsent = document.getElementById("totalAbsent");
-
+const sideEdit = document.getElementById("sideEdit");
+const sideAttendence = document.getElementById("sideAttendence");
+const sideTotalAttendence = document.getElementById("sideTotalAttendence");
+const sideSubmit = document.getElementById("sideSubmit");
+const sideForm = document.getElementById("sideForm");
 
 let totalClasses = 0;
 let attendClasses = 0;
@@ -18,7 +22,6 @@ let absentClasses = 0;
 presentButton.style.display = 'none';
 absentButton.style.display = 'none';
 resetButton.style.display = 'none';
-
 submitButton.style.display = 'none';
 
 
@@ -42,6 +45,7 @@ submitButton.addEventListener("click", ()=>{
     submitButton.style.display = "none";
     nameField.style.display = "none";
     infoTable.style.visibility = 'visible';
+    ham.style.visibility = "visible";
     editDetails();
 
 
@@ -82,6 +86,26 @@ resetButton.addEventListener("click", ()=>{
 
 })
 
+sideEdit.addEventListener("click", ()=>{
+    sideForm.style.display = "inline";
+})
+
+sideSubmit.addEventListener("click", ()=>{
+
+    if(sideTotalAttendence.value < sideAttendence.value){
+        alert("Abe Saale Theek Se daal Attendence.");
+    } else {
+        attendClasses = sideAttendence.value;
+        totalClasses = sideTotalAttendence.value;
+        absentClasses = totalClasses - attendClasses;
+        console.log(sideAttendence.value, sideTotalAttendence.value, absentClasses);
+        editDetails();
+        sideForm.style.display = "none";
+        sideAttendence.value = "";
+        sideTotalAttendence.value = "";
+    }
+});
+
 function editDetails(){
     details.innerHTML = `${nameField.value.capitalize()}`;
     attendenceRatio.innerHTML = `${attendClasses}/${totalClasses}`;
@@ -102,6 +126,11 @@ document.getElementById("year").innerHTML = date.getFullYear();
 
 // Hamburger Toggle Property
 ham.addEventListener('click', ()=>{
+    if(ham.classList.contains("change")){
+        closeNav()
+    } else{
+        openNav()
+    }
     ham.classList.toggle("change");
 })
 
@@ -110,4 +139,14 @@ ham.addEventListener('click', ()=>{
 // Make String Capatilize
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
 }
