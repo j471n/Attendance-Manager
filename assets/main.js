@@ -1,7 +1,7 @@
 const nameField = document.getElementById("name");
 const submitButton = document.getElementById("submitButton");
 const details = document.getElementById("details");
-const attendenceRatio = document.getElementById("attendence");
+const attendanceRatio = document.getElementById("attendance");
 const percentage = document.getElementById("percentage");
 const presentButton = document.getElementById("present");
 const absentButton = document.getElementById("absent");
@@ -10,8 +10,8 @@ const ham = document.getElementById("ham");
 const infoTable = document.getElementById("infoTable");
 const totalAbsent = document.getElementById("totalAbsent");
 const sideEdit = document.getElementById("sideEdit");
-const sideAttendence = document.getElementById("sideAttendence");
-const sideTotalAttendence = document.getElementById("sideTotalAttendence");
+const sideAttendance = document.getElementById("sideAttendance");
+const sideTotalAttendance = document.getElementById("sideTotalAttendance");
 const sideSubmit = document.getElementById("sideSubmit");
 const sideForm = document.getElementById("sideForm");
 const stats = document.getElementById("stats");
@@ -79,7 +79,7 @@ resetButton.addEventListener("click", ()=>{
     nameField.value = "";
     details.innerHTML = "";
     attendClasses.innerHTML = "";
-    attendenceRatio.innerHTML = "";
+    attendanceRatio.innerHTML = "";
     percentage.innerHTML = "";
     infoTable.style.visibility = 'hidden';
     ham.style.visibility = "hidden";
@@ -100,25 +100,25 @@ sideEdit.addEventListener("click", ()=>{
 
 sideSubmit.addEventListener("click", ()=>{
 
-    if(sideTotalAttendence.value < sideAttendence.value){
-        alert("Abe Saale Theek Se daal Attendence.");
+    if(sideTotalAttendance.value < sideAttendance.value){
+        alert("Abe Saale Theek Se daal Attendance.");
     } else {
-        attendClasses = sideAttendence.value;
-        totalClasses = sideTotalAttendence.value;
+        attendClasses = sideAttendance.value;
+        totalClasses = sideTotalAttendance.value;
         absentClasses = totalClasses - attendClasses;
-        console.log(sideAttendence.value, sideTotalAttendence.value, absentClasses);
+        console.log(sideAttendance.value, sideTotalAttendance.value, absentClasses);
         editDetails();
         sideForm.style.display = "none";
-        sideAttendence.value = "";
+        sideAttendance.value = "";
         ham.classList.remove("change");
         closeNav();
-        sideTotalAttendence.value = "";
+        sideTotalAttendance.value = "";
     }
 });
 
 function editDetails(){
     details.innerHTML = `${nameField.value.capitalize()}`;
-    attendenceRatio.innerHTML = `${attendClasses}/${totalClasses}`;
+    attendanceRatio.innerHTML = `${attendClasses}/${totalClasses}`;
     totalAbsent.innerHTML = `${absentClasses}`;
     if(totalClasses === 0){
         var Percentage = 0;
