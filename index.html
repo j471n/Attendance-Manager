@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendence Manager</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     
     <section class="main-container">
 
-        <img class="image" src="https://media.istockphoto.com/vectors/attendance-concept-vector-flat-design-vector-id1198430065?k=6&m=1198430065&s=612x612&w=0&h=Ktb9grhfWNY3HMN-oKDcg8FaOBjvmYmd0AlrRnQOT_k=" alt="">
+        <img class="image" src="assets/img/left-image.jpg" alt="">
             
-        <div class="stats">
+        <div id="stats" class="stats">
 
             <div class="ham" id="ham" >
                 <div class="bar1" id="bar1"></div>
@@ -22,20 +23,26 @@
 
             <div id="mySidenav" class="sidenav">
                 <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-                <p id="sideEdit">Edit Attendence</p>
-                <form onsubmit="return false;" id="sideForm" class="side-form">
-                    <input id="sideAttendence" type="text" placeholder="Enter Attend Classes">
-                    <input id="sideTotalAttendence" type="text" placeholder="Enter Total Classes">
-                    <button id="sideSubmit">Submit</button>
-                </form>
+                <div class="field-1">
+                    <p id="sideEdit">Edit Attendence</p>
+                    <form onsubmit="return false;" id="sideForm" class="side-form">
+                        <input id="sideAttendence" type="text" placeholder="Enter Attend Classes">
+                        <input id="sideTotalAttendence" type="text" placeholder="Enter Total Classes">
+                        <button id="sideSubmit">Submit</button>
+                    </form>
+                </div>
+
 
             </div>
 
-            <h1 class="title">Attendence Manager</h1>
+            <div class="middle">
+                <img class="title" src="assets/img/logo.png">
+                <input id="name" type="text" placeholder="Enter Name">
+                <input id="submitButton" type="button" value="Submit">
+            </div>
 
 
-            <input id="name" type="text" placeholder="Enter Name">
-            <input id="submitButton" type="button" value="Submit">
+            
             
             <table id="infoTable">
                 <tr class="row">
@@ -63,7 +70,7 @@
             <button id="reset">Reset</button>
 
             <footer id="footer">
-                &copy; <span id="year"></span> All Rights Reseved | <a href="">Jatin Sharma</a>
+                &copy; <span id="year"></span> All Rights Reserved | <a href="https://https://www.instagram.com/_noob_dev/">Jatin Sharma</a>
             </footer>
         </div>
 

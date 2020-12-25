@@ -14,6 +14,7 @@ const sideAttendence = document.getElementById("sideAttendence");
 const sideTotalAttendence = document.getElementById("sideTotalAttendence");
 const sideSubmit = document.getElementById("sideSubmit");
 const sideForm = document.getElementById("sideForm");
+const stats = document.getElementById("stats");
 
 let totalClasses = 0;
 let attendClasses = 0;
@@ -46,6 +47,7 @@ submitButton.addEventListener("click", ()=>{
     nameField.style.display = "none";
     infoTable.style.visibility = 'visible';
     ham.style.visibility = "visible";
+    stats.style.marginTop = "0";
     editDetails();
 
 
@@ -53,7 +55,7 @@ submitButton.addEventListener("click", ()=>{
 })
 
 presentButton.addEventListener("click", ()=>{
-
+    
     totalClasses++;
     attendClasses++;
     editDetails();
@@ -80,6 +82,8 @@ resetButton.addEventListener("click", ()=>{
     attendenceRatio.innerHTML = "";
     percentage.innerHTML = "";
     infoTable.style.visibility = 'hidden';
+    ham.style.visibility = "hidden";
+    stats.style.marginTop = "100px";
     totalClasses = 0;
     attendClasses = 0;
     absentClasses = 0;
@@ -87,7 +91,11 @@ resetButton.addEventListener("click", ()=>{
 })
 
 sideEdit.addEventListener("click", ()=>{
-    sideForm.style.display = "inline";
+    if(sideForm.style.display != "none"){
+        sideForm.style.display = "none";
+    } else {
+        sideForm.style.display = "inline";
+    }
 })
 
 sideSubmit.addEventListener("click", ()=>{
@@ -102,6 +110,8 @@ sideSubmit.addEventListener("click", ()=>{
         editDetails();
         sideForm.style.display = "none";
         sideAttendence.value = "";
+        ham.classList.remove("change");
+        closeNav();
         sideTotalAttendence.value = "";
     }
 });
@@ -143,10 +153,28 @@ String.prototype.capitalize = function() {
 
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+    if (window.innerWidth <= 375){
+        document.getElementById("mySidenav").style.width = "100%";
+        document.getElementById("mySidenav").style.height= "100%";
+    } else{
+
+        document.getElementById("mySidenav").style.width= "250px";
+    }
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+
+    if (window.innerWidth <= 375){
+        document.getElementById("mySidenav").style.height= "0%";
+        document.getElementById("mySidenav").style.width = "0%";
+
+    } else{
+
+        document.getElementById("mySidenav").style.width = "0";
+        
+    }
+  if(sideForm.style.display != "none"){
+      sideForm.style.display = "none";
+  }
 }
