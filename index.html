@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendence Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Attendance Manager</title>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/style.min.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     
@@ -24,10 +24,10 @@
             <div id="mySidenav" class="sidenav">
                 <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
                 <div class="field-1">
-                    <p id="sideEdit">Edit Attendence</p>
+                    <p id="sideEdit">Edit Attendance</p>
                     <form onsubmit="return false;" id="sideForm" class="side-form">
-                        <input id="sideAttendence" type="text" placeholder="Enter Attend Classes">
-                        <input id="sideTotalAttendence" type="text" placeholder="Enter Total Classes">
+                        <input id="sideAttendance" type="text" placeholder="Enter Attend Classes">
+                        <input id="sideTotalAttendance" type="text" placeholder="Enter Total Classes">
                         <button id="sideSubmit">Submit</button>
                     </form>
                 </div>
@@ -50,15 +50,15 @@
                     <td id="details">-</td>
                 </tr>
                 <tr class="row">
-                    <td>Attendence</td>
-                    <td id="attendence">-</td>
+                    <td>Attendance</td>
+                    <td id="attendance">-</td>
                 </tr>
                 <tr class="row">
                     <td>Total Absent</td>
                     <td id="totalAbsent"></td>
                 </tr>
                 <tr class="row">
-                    <td>Attendence Percentage</td>
+                    <td>Attendance Percentage</td>
                     <td id="percentage">-</td>
                 </tr>
             </table>
