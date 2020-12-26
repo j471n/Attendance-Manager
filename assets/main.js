@@ -16,6 +16,8 @@ const sideSubmit = document.getElementById("sideSubmit");
 const sideForm = document.getElementById("sideForm");
 const stats = document.getElementById("stats");
 const footer = document.getElementById("footer");
+const statsGroup = document.getElementById("stats-group");
+const middle = document.querySelector(".middle");
 
 let totalClasses = 0;
 let attendClasses = 0;
@@ -31,11 +33,11 @@ submitButton.style.display = 'none';
 nameField.addEventListener("keyup", ()=>{
     if(nameField.value == ""){
         submitButton.style.display = 'none';
-        footer.style.marginTop = "120px";
+        // footer.style.marginTop = "120px";
     }
     else {
         submitButton.style.display = 'block';
-        footer.style.marginTop = "78.5px";
+        // footer.style.marginTop = "78.5px";
     }
 });
 
@@ -52,7 +54,10 @@ submitButton.addEventListener("click", ()=>{
     ham.style.visibility = "visible";
     stats.style.marginTop = "0";
     editDetails();
-    footer.style.marginTop = "228.5px";
+    // footer.style.marginTop = "228.5px";
+    statsGroup.style.marginTop = "150px";
+    middle.style.marginTop = "0";
+
 })
 
 presentButton.addEventListener("click", ()=>{
@@ -88,7 +93,8 @@ resetButton.addEventListener("click", ()=>{
     totalClasses = 0;
     attendClasses = 0;
     absentClasses = 0;
-    footer.style.marginTop = "120px";
+    middle.style.marginTop = "0";
+    // footer.style.marginTop = "120px";
 })
 
 sideEdit.addEventListener("click", ()=>{
@@ -157,6 +163,8 @@ function openNav() {
     if (window.innerWidth <= 375){
         document.getElementById("mySidenav").style.width = "100%";
         document.getElementById("mySidenav").style.height= "100%";
+        footer.style.display = "block";
+
     } else{
 
         document.getElementById("mySidenav").style.width= "250px";
@@ -169,7 +177,7 @@ function closeNav() {
     if (window.innerWidth <= 375){
         document.getElementById("mySidenav").style.height= "0%";
         document.getElementById("mySidenav").style.width = "0%";
-
+        footer.style.display = "none";
     } else{
 
         document.getElementById("mySidenav").style.width = "0";
@@ -178,4 +186,5 @@ function closeNav() {
   if(sideForm.style.display != "none"){
       sideForm.style.display = "none";
   }
+
 }
