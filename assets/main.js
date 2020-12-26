@@ -108,7 +108,7 @@ sideEdit.addEventListener("click", ()=>{
 sideSubmit.addEventListener("click", ()=>{
 
     if(sideTotalAttendance.value < sideAttendance.value){
-        alert("Abe Saale Theek Se daal Attendance.");
+        alert("Developer : Abe Saale Theek Se daal Attendance.");
     } else {
         attendClasses = sideAttendance.value;
         totalClasses = sideTotalAttendance.value;

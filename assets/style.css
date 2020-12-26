@@ -77,6 +77,10 @@ button:hover, #submitButton:hover {
     color: #21A535;
 }
 
+#sideForm input{
+    border: none        ;
+}
+
 
 #absent{
     background-color: red;
@@ -281,7 +285,9 @@ input {
         position: fixed;
         display: none;
         bottom:2%;
-        text-align: center;
+        left: 15%;
+        /* margin:  0 auto!important; */
+        /* text-align: center!important; */
         font-weight: 500;
         font-size: 13px;
     }
