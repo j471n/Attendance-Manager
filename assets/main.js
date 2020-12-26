@@ -1,3 +1,4 @@
+/* Importing HMTL Fields*/
 const nameField = document.getElementById("name");
 const submitButton = document.getElementById("submitButton");
 const details = document.getElementById("details");
@@ -19,32 +20,38 @@ const footer = document.getElementById("footer");
 const statsGroup = document.getElementById("stats-group");
 const middle = document.querySelector(".middle");
 
+/* Base Variables*/
 let totalClasses = 0;
 let attendClasses = 0;
 let absentClasses = 0;
 
+/* Setting DISPLAY property to NONE*/
 presentButton.style.display = 'none';
 absentButton.style.display = 'none';
 resetButton.style.display = 'none';
 submitButton.style.display = 'none';
 
 
-//Checking Input Field
+/*  Checking Name Input Field isEmpty or Not on KeyPress
+ !   if Empty: then hide the Submit Button
+ !   esle: Show the Submit Button
+*/
 nameField.addEventListener("keyup", ()=>{
+
     if(nameField.value == ""){
         submitButton.style.display = 'none';
-        // footer.style.marginTop = "120px";
     }
     else {
         submitButton.style.display = 'block';
-        // footer.style.marginTop = "78.5px";
     }
 });
 
-
+/* This Function Shows the All property with the Name and the Other Details As well 
+   Its Shows the Data Table
+   It Shows the Ham and Navbar and etc
+*/
 submitButton.addEventListener("click", ()=>{
-    // let value = nameField.value;
-    // console.log(nameField.value);
+
     presentButton.style.display = 'inline';
     absentButton.style.display = 'inline';
     resetButton.style.display = 'inline';
@@ -54,12 +61,12 @@ submitButton.addEventListener("click", ()=>{
     ham.style.visibility = "visible";
     stats.style.marginTop = "0";
     editDetails();
-    // footer.style.marginTop = "228.5px";
     statsGroup.style.marginTop = "150px";
     middle.style.marginTop = "0";
 
 })
 
+/* IF user click Present Button then Present will be noted Down and Details will be Updated */
 presentButton.addEventListener("click", ()=>{
     
     totalClasses++;
@@ -67,7 +74,7 @@ presentButton.addEventListener("click", ()=>{
     editDetails();
 })
 
-
+/* IF user click Absent Button then Absent will be noted Down and Details will be Updated */
 absentButton.addEventListener("click", ()=>{
 
     totalClasses++;
@@ -75,7 +82,7 @@ absentButton.addEventListener("click", ()=>{
     editDetails();
 })
 
-
+/* IF user click Reset Button then All the Things we've changed will be back to initial Stage  */
 resetButton.addEventListener("click", ()=>{
 
     presentButton.style.display = 'none';
@@ -94,9 +101,9 @@ resetButton.addEventListener("click", ()=>{
     attendClasses = 0;
     absentClasses = 0;
     middle.style.marginTop = "0";
-    // footer.style.marginTop = "120px";
 })
 
+/* When Someone Click the Edit Attendance then Form will be displayed and if you click again then It'll be vanish */
 sideEdit.addEventListener("click", ()=>{
     if(sideForm.style.display != "none"){
         sideForm.style.display = "none";
@@ -105,6 +112,11 @@ sideEdit.addEventListener("click", ()=>{
     }
 })
 
+/* When Edit Attendance Form Submitted It checks-
+   That attendance < totoalClasses
+   and if all things goes right it update the Attendance Table
+   and Hide the Form and NavBar
+*/
 sideSubmit.addEventListener("click", ()=>{
 
     if(sideTotalAttendance.value < sideAttendance.value){
@@ -123,7 +135,11 @@ sideSubmit.addEventListener("click", ()=>{
     }
 });
 
+/* This is the main Function which update/edit the User Details 
+   Thier Present, Absent, Total Classes, Percentage 
+*/
 function editDetails(){
+
     details.innerHTML = `${nameField.value.capitalize()}`;
     attendanceRatio.innerHTML = `${attendClasses}/${totalClasses}`;
     totalAbsent.innerHTML = `${absentClasses}`;
@@ -135,13 +151,11 @@ function editDetails(){
     percentage.innerHTML = `${Percentage} %`;
 }
 
-
+/* It just Update the Year on Copyright Year by Year */
 let date = new Date;
 document.getElementById("year").innerHTML = date.getFullYear();
 
-
-
-// Hamburger Toggle Property
+/* Hamburger Toggle Property */
 ham.addEventListener('click', ()=>{
     if(ham.classList.contains("change")){
         closeNav()
@@ -151,14 +165,12 @@ ham.addEventListener('click', ()=>{
     ham.classList.toggle("change");
 })
 
-
-
-// Make String Capatilize
+// Make User's Name Capatilize
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-
+/* Function which Opens the SideNavBar*/
 function openNav() {
     if (window.innerWidth <= 375){
         document.getElementById("mySidenav").style.width = "100%";
@@ -171,7 +183,7 @@ function openNav() {
     }
 }
 
-/* Set the width of the side navigation to 0 */
+/* Function which Closes the SideNavBar and set the Sidebar to Default*/
 function closeNav() {
 
     if (window.innerWidth <= 375){
@@ -183,8 +195,8 @@ function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         
     }
-  if(sideForm.style.display != "none"){
-      sideForm.style.display = "none";
-  }
+    if (sideForm.style.display != "none"){
+        sideForm.style.display = "none";
+    }
 
 }
