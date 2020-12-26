@@ -15,6 +15,7 @@ const sideTotalAttendance = document.getElementById("sideTotalAttendance");
 const sideSubmit = document.getElementById("sideSubmit");
 const sideForm = document.getElementById("sideForm");
 const stats = document.getElementById("stats");
+const footer = document.getElementById("footer");
 
 let totalClasses = 0;
 let attendClasses = 0;
@@ -30,9 +31,11 @@ submitButton.style.display = 'none';
 nameField.addEventListener("keyup", ()=>{
     if(nameField.value == ""){
         submitButton.style.display = 'none';
+        footer.style.marginTop = "120px";
     }
     else {
         submitButton.style.display = 'block';
+        footer.style.marginTop = "78.5px";
     }
 });
 
@@ -49,9 +52,7 @@ submitButton.addEventListener("click", ()=>{
     ham.style.visibility = "visible";
     stats.style.marginTop = "0";
     editDetails();
-
-
-    
+    footer.style.marginTop = "228.5px";
 })
 
 presentButton.addEventListener("click", ()=>{
@@ -87,7 +88,7 @@ resetButton.addEventListener("click", ()=>{
     totalClasses = 0;
     attendClasses = 0;
     absentClasses = 0;
-
+    footer.style.marginTop = "120px";
 })
 
 sideEdit.addEventListener("click", ()=>{

@@ -280,7 +280,9 @@ input {
     }
 
     footer{
-        position: fixed;
+        position: static;
+        /* text-align: center!important; */
+        margin-top: 120px;
     }
     table, td, tr{
         border: 1px solid black;
